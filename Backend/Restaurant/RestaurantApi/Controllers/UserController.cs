@@ -12,19 +12,7 @@ namespace RestaurantApi.Controllers
             userBLL = new UserBLL();
         }
 
-        public IHttpActionResult GetAllUsers()
-        {
-            try
-            {
-                var users = userBLL.GetUsers();
-                return Ok(users);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
-        }
-
+        [HttpGet]
         public IHttpActionResult SignIn(string email, string password)
         {
             try
