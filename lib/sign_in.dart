@@ -116,7 +116,9 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 onChanged: (value) {
-                  _email = value;
+                  setState(() {
+                    _email = value;
+                  });
                 },
               ),
             ),
@@ -139,7 +141,9 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 onChanged: (value) {
-                  _password = value;
+                  setState(() {
+                    _password = value;
+                  });
                 },
               ),
             ),

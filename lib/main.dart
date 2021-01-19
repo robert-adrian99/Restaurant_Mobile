@@ -99,28 +99,6 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
-            // Padding(
-            //   padding: EdgeInsets.only(
-            //     top: 0,
-            //     left: 0,
-            //     right: 0,
-            //     bottom: 20,
-            //   ),
-            //   child: MaterialButton(
-            //     height: 50,
-            //     minWidth: 300,
-            //     color: Colors.brown,
-            //     child: Text(
-            //       "Continue without account",
-            //       style: TextStyle(
-            //         fontFamily: "OpenSans",
-            //         fontSize: 20,
-            //         color: Colors.white,
-            //       ),
-            //     ),
-            //     onPressed: () {},
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -76,6 +76,12 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      for (var product in Cart.products) {
+        _price += product['Price'] * product['Pieces'];
+      }
+    });
+
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
@@ -154,6 +160,20 @@ class _CartPageState extends State<CartPage> {
                 left: 50,
                 right: 50,
               ),
+              child: Text(
+                "Total: " + _price.toString(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 50,
+                left: 50,
+                right: 50,
+              ),
               child: MaterialButton(
                 height: 50,
                 minWidth: 300,
@@ -167,11 +187,6 @@ class _CartPageState extends State<CartPage> {
                   ),
                 ),
                 onPressed: () {
-                  setState(() {
-                    for (var product in Cart.products) {
-                      _price += product['Price'] * product['Pieces'];
-                    }
-                  });
                   postData();
                 },
               ),
