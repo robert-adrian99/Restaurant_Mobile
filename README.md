@@ -69,4 +69,4 @@ I have also used a Visual Studio extension for making the API visible on the int
 ![](./images/api.png)
 
 !!!
-***For the Flutter app to work it is required that the API to be running on a server (local or not)***
+***For the Flutter app (SteakHouse Restaurant) to work it is required that the API to be running on a server (local or not)***
