@@ -1,0 +1,79 @@
+﻿<Window x:Class="Restaurant.Views.SeeCartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Views"
+        xmlns:help="clr-namespace:Restaurant.Helps"
+        xmlns:ctx="clr-namespace:Restaurant.ViewModels"
+        mc:Ignorable="d"
+        Title="Steak House" Height="700" Width="1000" Icon="/Restaurant;component/Assets/Icon.png" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF5A3F32"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10,10,10,10" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding  Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding  VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#492C1D"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <help:TemplateSelector x:Key="Selector"/>
+        <DataTemplate x:Key="ListTemplate">
+            <StackPanel Orientation="Horizontal" Background="Transparent">
+                <TextBlock Text="{Binding Name}" HorizontalAlignment="Left" Width="300"/>
+                <TextBlock Text="{Binding Quantity}" Width="250"/>
+                <TextBlock Text="{Binding Price}" Width="250"/>
+                <TextBlock Text="{Binding TotalPrice}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid Background="#a5a58d">
+
+        <Button HorizontalAlignment="Center" Height="150" Margin="0,20,0,0" VerticalAlignment="Top" Width="200" Background="Transparent" Cursor="Hand" Click="BackClick" Style="{StaticResource RoundedButtonStyle}">
+            <Image  Source="/Restaurant;component/Assets/SteakHouse.png"/>
+        </Button>
+
+        <Label Content="Product Name" FontFamily="Segoe UI Black" FontSize="20" Margin="50,171,744,460" Width="200" Height="40"/>
+
+        <Label Content="Quantity (pieces)" FontFamily="Segoe UI Black" FontSize="20" Margin="320,171,480,460" Height="40"/>
+
+        <Label Content="Price/Piece ($)" FontFamily="Segoe UI Black" FontSize="20" Margin="580,171,246,460" Height="40"/>
+
+        <Label Content="Price ($)" FontFamily="Segoe UI Black" FontSize="20" Margin="830,171,44,460" Height="40"/>
+        
+        <ListBox HorizontalAlignment="Left" Height="270" VerticalAlignment="Top" Width="900" Margin="50,216,0,0" Background="Transparent" BorderBrush="Black" FontFamily="Segoe UI Black" FontSize="20" ItemsSource="{Binding ProductsInCarts}" ItemTemplateSelector="{StaticResource Selector}" SelectedItem="{Binding SelectedItem}"/>
+
+        <Label Content="Subtotal ($)" FontFamily="Segoe UI Black" FontSize="20" Margin="639,495,214,136" Height="40" HorizontalContentAlignment="Right"/>
+
+        <Label Content="{Binding Subtotal}" FontFamily="Segoe UI Black" FontSize="20" Margin="792,495,44,136" Height="40" HorizontalContentAlignment="Left"/>
+
+        <Label Content="Delivery Cost ($)" FontFamily="Segoe UI Black" FontSize="20" Margin="594,535,214,96" Height="40" HorizontalContentAlignment="Right"/>
+
+        <Label Content="{Binding DeliveryCost}" FontFamily="Segoe UI Black" FontSize="20" Margin="792,535,44,96" Height="40" HorizontalContentAlignment="Left"/>
+
+        <Label Content="Discount ($)" FontFamily="Segoe UI Black" FontSize="20" Margin="639,575,214,56" Height="40" HorizontalContentAlignment="Right"/>
+
+        <Label Content="{Binding Discount}" FontFamily="Segoe UI Black" FontSize="20" Margin="792,575,44,56" Height="40" HorizontalContentAlignment="Left"/>
+
+        <Label Content="Total ($)" FontFamily="Segoe UI Black" FontSize="20" Margin="639,615,214,16" Height="40" HorizontalContentAlignment="Right"/>
+
+        <Label Content="{Binding Total}" FontFamily="Segoe UI Black" FontSize="20" Margin="792,615,44,16" Height="40" HorizontalContentAlignment="Left"/>
+
+        <Button Style="{StaticResource RoundedButtonStyle}" Content="DELETE ITEM" HorizontalAlignment="Left" Margin="150,0,0,100" VerticalAlignment="Bottom" Width="300" Cursor="Hand" BorderThickness="0" Height="60" FontFamily="Segoe UI Black" FontWeight="Bold" FontSize="20" Command="{Binding DeleteItemCommand}"/>
+
+        <Button Style="{StaticResource RoundedButtonStyle}" Content="PLACE ORDER" HorizontalAlignment="Left" Margin="150,0,0,30" VerticalAlignment="Bottom" Width="300" Cursor="Hand" BorderThickness="0" Height="60" FontFamily="Segoe UI Black" FontWeight="Bold" FontSize="20" Command="{Binding PlaceOrderCommand}"/>
+
+    </Grid>
+</Window>
