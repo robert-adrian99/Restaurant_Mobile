@@ -29,7 +29,7 @@ Flutter widgets are built using a modern framework that takes inspiration from R
 
 ## App presentation
 
-A video demo of this app is also available on my [drive](https://drive.google.com/file/d/1b3JS6nJXDf8fuYzoJbgx-qrNTa3kKrXp/view?usp=sharing)
+A video demo of this app is also available on my [drive](https://drive.google.com/file/d/1b3JS6nJXDf8fuYzoJbgx-qrNTa3kKrXp/view?usp=sharing).
 
 In this demo I've shown all functionalities on an iOS simulator, an Android emulator and also live on my iPhone. To be mentioned that this video is made in Romanian.
 
